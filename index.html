@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project 120 Africa - Payment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #1e1e1e;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ffcc00;
+      margin-left: 20px;
+    }
+    .content {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .overview {
+      background-color: #1e1e1e;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 400px;
+      margin: auto;
+      padding: 20px;
+      background-color: #1e1e1e;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+    input {
+      background-color: #333;
+      color: white;
+    }
+    button {
+      background-color: #ffcc00;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with Text Logo -->
+  <header>
+    <div class="logo">Project 120 Africa</div>
+  </header>
+
+  <!-- Main Content Area -->
+  <div class="content">
+    <!-- Project Overview -->
+    <div class="overview">
+      <p>
+        <strong>Project 120 Africa</strong> is a high-impact youth empowerment initiative focused on equipping the next generation with essential tech, media, and business skills. The project empowers 120 individuals per state through comprehensive training in six distinct skill sets, ensuring personalized learning. For this year, we are visiting four states with an intensive registration period, followed by a two-day conference, one month of internship, and a certification ceremony.
+      </p>
+      <p>
+        Early bird registration is available at ₦25,000, with the standard fee set at ₦30,000.
+      </p>
+    </div>
+
+    <!-- Payment Container -->
+    <div class="container">
+      <h2>Make a Payment</h2>
+      <input type="text" id="name" placeholder="Enter your name" required />
+      <input type="email" id="email" placeholder="Enter your email" required />
+      <input type="number" id="amount" placeholder="Enter amount" required />
+      <button onclick="payWithPaystack()">Pay Now</button>
+    </div>
+  </div>
+
+  <!-- Paystack Inline Script -->
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <script>
+    function payWithPaystack() {
+      let handler = PaystackPop.setup({
+        key: 'YOUR_PUBLIC_KEY', // Replace with your Paystack public key
+        email: document.getElementById('email').value,
+        amount: document.getElementById('amount').value * 100,
+        currency: "NGN",
+        ref: 'TXN_' + Math.floor((Math.random() * 1000000000) + 1),
+        callback: function(response) {
+          alert('Payment successful! Transaction ref: ' + response.reference);
+        },
+        onClose: function() {
+          alert('Payment window closed.');
+        }
+      });
+      handler.openIframe();
+    }
+  </script>
+</body>
+</html>
