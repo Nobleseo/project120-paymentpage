@@ -2,98 +2,245 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Project 120 Africa - Payment</title>
+
+  <!-- STYLES -->
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #121212;
-      color: #ffffff;
+    /* COLORS (from your logo design) */
+    :root {
+      --black: #000000;
+      --dark-bg: #121212;
+      --dark-card: #1e1e1e;
+      --white: #ffffff;
+      --red: #961111;
+      --green: #139717;
+      --yellow: #d9d80f;
+    }
+
+    /* KEYFRAME ANIMATIONS */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* RESET & GLOBAL STYLES */
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--white);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    /* HEADER */
     header {
-      background-color: #1e1e1e;
-      padding: 20px;
       display: flex;
       align-items: center;
+      background-color: var(--dark-card);
+      padding: 15px 20px;
       box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+      animation: fadeInUp 1s ease-out;
     }
-    .logo {
-      font-size: 1.5rem;
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+    .logo-img {
+      height: 50px;
+      width: auto;
+      margin-right: 15px;
+    }
+    .logo-text {
+      font-size: 1.6rem;
       font-weight: bold;
-      color: #ffcc00;
-      margin-left: 20px;
+      color: var(--white);
     }
+
+    /* MAIN CONTENT */
     .content {
-      padding: 20px;
-      max-width: 800px;
-      margin: auto;
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
     }
+
+    /* OVERVIEW SECTION */
     .overview {
-      background-color: #1e1e1e;
+      background-color: var(--dark-card);
       padding: 20px;
       border-radius: 8px;
       margin-bottom: 30px;
+      line-height: 1.6;
       font-size: 0.95rem;
-      line-height: 1.5;
+      animation: fadeInUp 1s ease-out;
     }
-    .container {
-      max-width: 400px;
-      margin: auto;
-      padding: 20px;
-      background-color: #1e1e1e;
+    .overview h2 {
+      color: var(--yellow);
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+    }
+    .overview p {
+      margin-bottom: 10px;
+    }
+
+    /* PAYMENT FORM SECTION */
+    .payment-container {
+      background-color: var(--dark-card);
       border-radius: 8px;
+      padding: 20px;
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      max-width: 500px;
+      margin: 0 auto 40px auto;
+      animation: fadeInUp 1s ease-out;
     }
-    input, button {
+    .payment-container h3 {
+      color: var(--green);
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: var(--white);
+      font-size: 0.9rem;
+    }
+    .form-group input {
       width: 100%;
       padding: 10px;
-      margin-top: 10px;
       border: none;
       border-radius: 5px;
-    }
-    input {
       background-color: #333;
-      color: white;
+      color: var(--white);
+      font-size: 0.9rem;
     }
-    button {
-      background-color: #ffcc00;
-      color: black;
+    .pay-btn {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      background-color: var(--yellow);
+      color: var(--black);
       font-weight: bold;
+      border: none;
+      border-radius: 5px;
       cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    .pay-btn:hover {
+      background-color: #c9c60d; /* Slightly darker yellow */
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: var(--dark-card);
+      padding: 20px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #cccccc;
+      animation: fadeInUp 1s ease-out;
+    }
+    footer a {
+      color: var(--yellow);
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* MEDIA QUERIES */
+    @media (max-width: 600px) {
+      .logo-text {
+        font-size: 1.2rem;
+      }
+      .overview h2 {
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
+
 <body>
-  <!-- Header with Text Logo -->
+  <!-- HEADER -->
   <header>
-    <div class="logo">Project 120 Africa</div>
+    <div class="logo-container">
+      <!-- Replace logo.png with the actual image file or URL of your logo -->
+      <img src="logo.png" alt="Project 120 Africa" class="logo-img" />
+      <div class="logo-text">Project 120 Africa</div>
+    </div>
   </header>
 
-  <!-- Main Content Area -->
+  <!-- MAIN CONTENT -->
   <div class="content">
-    <!-- Project Overview -->
+    <!-- OVERVIEW SECTION -->
     <div class="overview">
+      <h2>About Project 120 Africa</h2>
       <p>
-        <strong>Project 120 Africa</strong> is a high-impact youth empowerment initiative focused on equipping the next generation with essential tech, media, and business skills. The project empowers 120 individuals per state through comprehensive training in six distinct skill sets, ensuring personalized learning. For this year, we are visiting four states with an intensive registration period, followed by a two-day conference, one month of internship, and a certification ceremony.
+        Project 120 Africa is a high-impact youth empowerment initiative focused on equipping the next generation with essential tech, media, and business skills. This project empowers 120 individuals per state, providing them with the necessary tools and knowledge to thrive in the rapidly evolving digital landscape.
       </p>
       <p>
-        Early bird registration is available at ₦25,000, with the standard fee set at ₦30,000.
+        For this year, we will be visiting four states, each with a comprehensive curriculum aimed at enhancing both technical, business, and media-related competencies. The project is broken down into six distinct skill sets, each comprising 20 participants to ensure effective and personalized teaching.
+      </p>
+      <p>
+        Early bird registration costs ₦25,000, with a standard fee of ₦30,000. These funds go toward covering the cost of workshops, materials, and operational expenses for the program.
+      </p>
+      <p>
+        <strong>Project Structure:</strong><br/>
+        - Registration (4 weeks per state)<br/>
+        - 2-Day Conference for all registered participants<br/>
+        - 1-Month Internship Program<br/>
+        - Certification Ceremony with awards for outstanding participants
+      </p>
+      <p>
+        <strong>Skill Sets Offered:</strong><br/>
+        Data Analysis, Email Marketing, Digital Creatives, Video Editing, Content Writing, Social Media Management, Digital Marketing, Funnel Marketing, Google Ads, YouTube Optimization & Monetization, Virtual Assistance, and more.
       </p>
     </div>
 
-    <!-- Payment Container -->
-    <div class="container">
-      <h2>Make a Payment</h2>
-      <input type="text" id="name" placeholder="Enter your name" required />
-      <input type="email" id="email" placeholder="Enter your email" required />
-      <input type="number" id="amount" placeholder="Enter amount" required />
-      <button onclick="payWithPaystack()">Pay Now</button>
+    <!-- PAYMENT SECTION -->
+    <div class="payment-container">
+      <h3>Make a Payment</h3>
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Enter your email" required />
+      </div>
+      <div class="form-group">
+        <label for="amount">Amount (NGN)</label>
+        <input type="number" id="amount" placeholder="Enter amount" required />
+      </div>
+      <button class="pay-btn" onclick="payWithPaystack()">Pay Now</button>
     </div>
   </div>
 
-  <!-- Paystack Inline Script -->
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 Project 120 Africa. All rights reserved.
+  </footer>
+
+  <!-- PAYSTACK SCRIPT -->
   <script src="https://js.paystack.co/v1/inline.js"></script>
   <script>
     function payWithPaystack() {
@@ -101,7 +248,7 @@
         key: 'YOUR_PUBLIC_KEY', // Replace with your Paystack public key
         email: document.getElementById('email').value,
         amount: document.getElementById('amount').value * 100,
-        currency: "NGN",
+        currency: 'NGN',
         ref: 'TXN_' + Math.floor((Math.random() * 1000000000) + 1),
         callback: function(response) {
           alert('Payment successful! Transaction ref: ' + response.reference);
