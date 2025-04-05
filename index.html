@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Project 120 Africa - Registration</title>
   <style>
-    /* COLORS (derived from design image) */
+    /* COLORS */
     :root {
       --black: #000000;
       --dark-bg: #121212;
@@ -16,37 +16,28 @@
       --yellow: #d9d80f;
       --faint: rgba(255, 255, 255, 0.6);
     }
-
     /* KEYFRAME ANIMATIONS */
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    
     @keyframes slideIn {
       from { opacity: 0; transform: translateX(-50px); }
       to { opacity: 1; transform: translateX(0); }
     }
-    
     @keyframes blink {
       0% { opacity: 0; }
       50% { opacity: 1; }
       100% { opacity: 0; }
     }
-
     /* GLOBAL STYLES */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: Arial, sans-serif;
       background-color: var(--dark-bg);
       color: var(--white);
       line-height: 1.6;
     }
-
     /* HEADER */
     header {
       display: flex;
@@ -56,27 +47,11 @@
       box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
       animation: fadeInUp 1s ease-out;
     }
-    .logo-container {
-      display: flex;
-      align-items: center;
-    }
-    .logo-img {
-      height: 50px;
-      width: auto;
-      margin-right: 15px;
-    }
-    .logo-text {
-      font-size: 1.6rem;
-      font-weight: bold;
-      color: var(--white);
-    }
-
+    .logo-container { display: flex; align-items: center; }
+    .logo-img { height: 50px; width: auto; margin-right: 15px; }
+    .logo-text { font-size: 1.6rem; font-weight: bold; color: var(--white); }
     /* CONTAINERS */
-    .content {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
+    .content { max-width: 900px; margin: 30px auto; padding: 0 20px; }
     .container {
       background-color: var(--dark-card);
       padding: 20px;
@@ -84,114 +59,71 @@
       margin-bottom: 30px;
       box-shadow: 0 0 10px rgba(255,255,255,0.1);
     }
-    .container h2, .container h3 {
-      margin-bottom: 15px;
-    }
-
-    /* OVERVIEW CONTAINER */
-    .overview {
-      animation: slideIn 1s ease-out;
-      font-size: 0.95rem;
-    }
-    .overview p {
-      margin-bottom: 10px;
-    }
-
-    /* SKILLS BREAKDOWN CONTAINER */
-    .skills {
-      animation: fadeInUp 1s ease-out;
-      font-size: 0.95rem;
-    }
-    .skills ul {
-      list-style: disc;
-      margin-left: 20px;
-    }
-    .skills li {
-      margin-bottom: 8px;
-    }
-
-    /* PAYMENT CONTAINER */
-    .payment-container {
-      animation: fadeInUp 1s ease-out;
-    }
-    .pricing {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 1.2rem;
-    }
-    .original-price {
-      text-decoration: line-through;
-      color: var(--faint);
-      margin-right: 10px;
-    }
-    .early-bird-price {
-      color: var(--yellow);
-      font-weight: bold;
-      animation: blink 2s infinite;
-    }
-    .form-group {
-      margin-bottom: 15px;
-      text-align: left;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-      font-size: 0.9rem;
-    }
+    .overview { animation: slideIn 1s ease-out; font-size: 0.95rem; }
+    .overview h2 { color: var(--yellow); margin-bottom: 10px; font-size: 1.4rem; }
+    .overview p { margin-bottom: 10px; }
+    .skills { animation: fadeInUp 1s ease-out; font-size: 0.95rem; }
+    .skills ul { list-style: disc; margin-left: 20px; }
+    .skills li { margin-bottom: 8px; }
+    .payment-container { animation: fadeInUp 1s ease-out; }
+    .pricing { text-align: center; margin-bottom: 20px; font-size: 1.2rem; }
+    .original-price { text-decoration: line-through; color: var(--faint); margin-right: 10px; }
+    .early-bird-price { color: var(--yellow); font-weight: bold; animation: blink 2s infinite; }
+    .form-group { margin-bottom: 15px; text-align: left; }
+    .form-group label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 0.9rem; }
     .form-group input {
-      width: 100%;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      background-color: #333;
-      color: var(--white);
-      font-size: 0.9rem;
-    }
-    .amount-placeholder {
-      color: var(--faint);
+      width: 100%; padding: 10px; border: none; border-radius: 5px;
+      background-color: #333; color: var(--white); font-size: 0.9rem;
     }
     .pay-btn {
-      width: 100%;
-      padding: 12px;
+      width: 100%; padding: 12px; background-color: var(--yellow);
+      color: var(--black); font-weight: bold; border: none; border-radius: 5px;
+      cursor: pointer; font-size: 1rem; transition: background-color 0.3s ease;
+    }
+    .pay-btn:hover { background-color: #c9c60d; }
+    .fomo {
+      text-align: center; margin-top: 10px; font-size: 0.95rem;
+      color: var(--red); font-weight: bold;
+    }
+    /* MODAL (THANK YOU POPUP) */
+    .modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      animation: fadeInUp 0.5s ease-out;
+    }
+    .modal-content {
+      background-color: var(--dark-card);
+      padding: 30px;
+      border-radius: 8px;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    }
+    .modal-content h1 { color: var(--yellow); margin-bottom: 20px; }
+    .modal-content p { margin-bottom: 20px; }
+    .modal-content a {
       background-color: var(--yellow);
       color: var(--black);
-      font-weight: bold;
-      border: none;
+      padding: 10px 20px;
       border-radius: 5px;
-      cursor: pointer;
-      font-size: 1rem;
+      text-decoration: none;
+      font-weight: bold;
       transition: background-color 0.3s ease;
     }
-    .pay-btn:hover {
-      background-color: #c9c60d;
-    }
-    .fomo {
-      text-align: center;
-      margin-top: 10px;
-      font-size: 0.95rem;
-      color: var(--red);
-      font-weight: bold;
-    }
-
+    .modal-content a:hover { background-color: #c9c60d; }
     /* FOOTER */
     footer {
-      background-color: var(--dark-card);
-      padding: 20px;
-      text-align: center;
-      font-size: 0.85rem;
-      color: #cccccc;
-      animation: fadeInUp 1s ease-out;
+      background-color: var(--dark-card); padding: 20px; text-align: center;
+      font-size: 0.85rem; color: #cccccc; animation: fadeInUp 1s ease-out;
     }
-    footer a {
-      color: var(--yellow);
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    /* MEDIA QUERIES */
+    footer a { color: var(--yellow); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
     @media (max-width: 600px) {
       .logo-text { font-size: 1.2rem; }
       .overview h2 { font-size: 1.2rem; }
@@ -202,7 +134,7 @@
   <!-- HEADER -->
   <header>
     <div class="logo-container">
-      <!-- Replace with your actual logo image path or URL -->
+      <!-- Replace with your actual logo image path -->
       <img src="logo.png" alt="Project 120 Africa" class="logo-img" />
       <div class="logo-text">Project 120 Africa</div>
     </div>
@@ -266,6 +198,16 @@
     </div>
   </div>
 
+  <!-- THANK YOU MODAL -->
+  <div id="thankYouModal" class="modal">
+    <div class="modal-content">
+      <h1>Thank You!</h1>
+      <p>Your payment was successful.</p>
+      <p>Join our WhatsApp group for updates and support:</p>
+      <a href="https://chat.whatsapp.com/KVnHToCiRPy9PP5ZRmQ7wj" target="_blank">Join WhatsApp Group</a>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <footer>
     &copy; 2025 Project 120 Africa. All rights reserved.
@@ -276,14 +218,15 @@
   <script>
     function payWithPaystack() {
       let handler = PaystackPop.setup({
-        key: 'YOUR_PUBLIC_KEY', // Replace with your Paystack public key
+        key: 'pk_test_4759c3675561ef5acbaead4274fa8123ff2b0e27', // Your Paystack public key
         email: document.getElementById('email').value,
         amount: document.getElementById('amount').value * 100,
         currency: 'NGN',
         ref: 'TXN_' + Math.floor((Math.random() * 1000000000) + 1),
         callback: function(response) {
-          alert('Payment successful! Transaction ref: ' + response.reference);
-          // Optionally redirect or show a success message/page here
+          // On successful payment, hide payment container and show thank-you modal
+          document.querySelector('.payment-container').style.display = 'none';
+          document.getElementById('thankYouModal').style.display = 'flex';
         },
         onClose: function() {
           alert('Payment window closed.');
